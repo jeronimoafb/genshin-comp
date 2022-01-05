@@ -1,0 +1,21 @@
+<h1>Elementos </h1>
+<%= link_to "Novo Elemento", new_element_path %>
+
+<table>
+    <thead> 
+        <tr> 
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Ações</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @elements.each do |element|%>
+            <tr> 
+                <td><%= element.id %></td>
+                <td><%= element.name %></td>
+                <td><%= link_to "detalhes", "" %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -1,6 +1,5 @@
-class Character < ApplicationRecord
-  belongs_to :element
-  belongs_to :weapon
+class Composition < ApplicationRecord
+  belongs_to :user
 
   has_many :composition_characters
   has_many :characters, through: :composition_characters

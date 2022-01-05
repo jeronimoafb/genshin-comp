@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_24_020112) do
+ActiveRecord::Schema.define(version: 2022_01_05_023248) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,23 @@ ActiveRecord::Schema.define(version: 2021_12_24_020112) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["element_id"], name: "index_characters_on_element_id"
     t.index ["weapon_id"], name: "index_characters_on_weapon_id"
+  end
+
+  create_table "composition_characters", force: :cascade do |t|
+    t.bigint "composition_id", null: false
+    t.bigint "character_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["character_id"], name: "index_composition_characters_on_character_id"
+    t.index ["composition_id"], name: "index_composition_characters_on_composition_id"
+  end
+
+  create_table "compositions", force: :cascade do |t|
+    t.string "name"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_compositions_on_user_id"
   end
 
   create_table "elements", force: :cascade do |t|
@@ -52,4 +69,7 @@ ActiveRecord::Schema.define(version: 2021_12_24_020112) do
 
   add_foreign_key "characters", "elements"
   add_foreign_key "characters", "weapons"
+  add_foreign_key "composition_characters", "characters"
+  add_foreign_key "composition_characters", "compositions"
+  add_foreign_key "compositions", "users"
 end
