@@ -22,6 +22,11 @@
 
     <%= form.label :weapon_id, "Arma" %>
     <%= form.select :weapon_id, Weapon.all.map{ |l| [l.name, l.id] } %>
+
+    <%= form.label :image, "Imagem" %>
+    <%= form.file_field :image %><br /><br />
+
+
   </div>
 
 

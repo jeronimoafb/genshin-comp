@@ -1,6 +1,2 @@
 <h1>Novo elemento</h1>
-<%= form_with model: @element do |form| %>
-  <%= form.label :name, "Nome" %>
-  <%= form.text_field :name %>
-  <%= form.submit %>
-<% end %>
+<%= render "form" %>

@@ -22,7 +22,7 @@ class CharactersController < ApplicationController
   # POST /characters or /characters.json
   def create
     @character = Character.new(character_params)
-
+    @character.image.attach(params[:character][:image]) 
     respond_to do |format|
       if @character.save
         format.html { redirect_to character_url(@character), notice: "Character was successfully created." }
@@ -36,6 +36,7 @@ class CharactersController < ApplicationController
 
   # PATCH/PUT /characters/1 or /characters/1.json
   def update
+    @character.image.attach(params[:character][:image]) if params[:character][:image].present?
     respond_to do |format|
       if @character.update(character_params)
         format.html { redirect_to character_url(@character), notice: "Character was successfully updated." }

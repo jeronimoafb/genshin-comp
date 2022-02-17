@@ -1,5 +1,6 @@
 <h1>Personagem</h1>
 <p id="notice"><%= notice %></p>
+<%= image_tag(@character.image) if @character.image.present? %>
 <p><strong>ID: </strong><%= @character.id %></p>
 <p><strong>Nome: </strong><%= @character.name %></p>
 <p><strong>Descrição: </strong><%= @character.description %></p>

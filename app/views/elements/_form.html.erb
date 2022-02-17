@@ -1,0 +1,7 @@
+<%= form_with model: @element do |form| %>
+  <%= form.label :name, "Nome" %>
+  <%= form.text_field :name %>
+  <%= form.label :image, "Imagem" %>
+  <%= form.file_field :image %><br /><br />
+  <%= form.submit %>
+<% end %>
