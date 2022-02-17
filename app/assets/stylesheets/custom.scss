@@ -1,0 +1,20 @@
+.navbar {
+    background-color: dodgerblue;
+    color: white;
+    a {
+        color: whitesmoke;
+        font-weight: bold;
+        text-decoration: none; //tira o sublinhado
+    }
+    ul {
+        display: flex; //coloca um do lado do outro
+        list-style: none; //tira as bolotinha da lista
+        li {
+            margin: 16px 20px;
+        }
+    }
+}
+
+body{
+    margin: 0;
+}

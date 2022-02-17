@@ -1,0 +1,31 @@
+<%= form_with(model: character) do |form| %>
+  <% if character.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(character.errors.count, "error") %> prohibited this character from being saved:</h2>
+
+      <ul>
+        <% character.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="inputs">
+    <%= form.label :name, "Nome" %>
+    <%= form.text_field :name %><br>
+
+    <%= form.label :description, "Descrição" %>
+    <%= form.text_field :description %><br>
+
+    <%= form.label :element_id, "Elemento" %>
+    <%= form.select :element_id, Element.all.map{ |l| [l.name, l.id] } %><br>
+
+    <%= form.label :weapon_id, "Arma" %>
+    <%= form.select :weapon_id, Weapon.all.map{ |l| [l.name, l.id] } %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

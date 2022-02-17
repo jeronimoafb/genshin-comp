@@ -1,0 +1,9 @@
+<h1>Personagem</h1>
+<p id="notice"><%= notice %></p>
+<p><strong>ID: </strong><%= @character.id %></p>
+<p><strong>Nome: </strong><%= @character.name %></p>
+<p><strong>Descrição: </strong><%= @character.description %></p>
+<p><strong>Elemento: </strong><%= @character.element.name %></p>
+<p><strong>Arma </strong><%= @character.weapon.name %></p>
+<%= link_to 'Edit', edit_character_path(@character) %> |
+<%= link_to 'Back', characters_path %>

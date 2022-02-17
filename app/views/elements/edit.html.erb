@@ -1,2 +1,6 @@
-<h1>Elements#edit</h1>
-<p>Find me in app/views/elements/edit.html.erb</p>
+<h1>Editar elemento</h1>
+<%= form_with model: @element do |form| %>
+  <%= form.label :name, "Nome" %>
+  <%= form.text_field :name %>
+  <%= form.submit %>
+<% end %>

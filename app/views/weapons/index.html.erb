@@ -1,0 +1,24 @@
+<h1>Armas </h1>
+<%= link_to "criar", new_weapon_path %>
+<table>
+    <thead> 
+        <tr> 
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Ações</td>
+        </tr>
+    </thead>
+    <tbody>
+        <% @weapons.each do |weapon|%>
+            <tr> 
+                <td><%= weapon.id %></td>
+                <td><%= weapon.name %></td>
+                <td>
+                    <%= link_to "detalhes", weapon_path(weapon.id) %>
+                    <%= link_to "editar", edit_weapon_path(weapon.id)%>
+                    <%= link_to "excluir", destroy_weapon_path(weapon.id), method: :delete %>
+                </td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>

@@ -14,7 +14,11 @@
             <tr> 
                 <td><%= element.id %></td>
                 <td><%= element.name %></td>
-                <td><%= link_to "detalhes", "" %></td>
+                <td>
+                    <%= link_to "detalhes", element_path(element.id) %>
+                    <%= link_to "editar", edit_element_path(element.id)%>
+                    <%= link_to "excluir", destroy_element_path(element.id), method: :delete %>
+                </td>
             </tr>
         <% end %>
     </tbody>
