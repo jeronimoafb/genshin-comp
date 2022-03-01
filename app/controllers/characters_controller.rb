@@ -1,9 +1,11 @@
 class CharactersController < ApplicationController
   before_action :set_character, only: %i[ show edit update destroy ]
+  before_action :authorize_character
 
   # GET /characters or /characters.json
   def index
     @characters = Character.all
+
   end
 
   # GET /characters/1 or /characters/1.json
@@ -67,5 +69,9 @@ class CharactersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def character_params
       params.require(:character).permit(:name,:description,:element_id,:weapon_id)
+    end
+
+    def authorize_character 
+      authorize Character
     end
 end

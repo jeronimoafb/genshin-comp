@@ -1,4 +1,5 @@
 class ElementsController < ApplicationController
+  before_action :authorize_element
   def index
     @elements = Element.all
   end
@@ -40,5 +41,10 @@ class ElementsController < ApplicationController
     if @element.destroy
       redirect_to elements_path
     end
+  end 
+
+  private 
+  def authorize_element 
+    authorize Element
   end
 end

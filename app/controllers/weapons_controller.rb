@@ -1,5 +1,6 @@
 class WeaponsController < ApplicationController
     before_action :set_weapon, only: [:show, :edit, :update, :destroy]
+    before_action :authorize_weapon
     def index
       @weapons = Weapon.all
     end
@@ -40,6 +41,10 @@ class WeaponsController < ApplicationController
     end
 
     private 
+    def authorize_weapon
+      authorize Weapon
+    end
+    
     def set_weapon
         @weapon = Weapon.find(params[:id])
     end
