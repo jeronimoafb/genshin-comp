@@ -18,3 +18,16 @@
 body{
     margin: 0;
 }
+
+.devise-card {
+    width: 400px;
+}
+
+.bg-purple {
+    background-color: #8d47c3;
+}
+@media screen and (max-width: 600px){
+    .devise-card{
+        width: 300px;
+    }
+}
